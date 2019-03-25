@@ -2,7 +2,7 @@ module.exports =
 
 [{
 	name: "web",
-	repo: "https://github.com/sharelatex/web-sharelatex.git",
+	repo: "https://github.com/theunbound/web-sharelatex.git",
 	version: "master"
 }, {
 	name: "real-time",
@@ -34,7 +34,7 @@ module.exports =
 	version: "master"
 }, {
 	name: "tags",
-	repo: "https://github.com/sharelatex/tags-sharelatex.git",
+	repo: "https://github.com/theunbound/tags-sharelatex.git",
 	version: "master"
 }, {
 	name: "spelling",
