@@ -26,9 +26,8 @@ ADD ${baseDir}/services.js /var/www/sharelatex/config/services.js
 ADD ${baseDir}/package.json /var/www/package.json
 ADD ${baseDir}/git-revision.js /var/www/git-revision.js
 ADD ${baseDIr}/install-services /var/www/sharelatex/bin/install-services
-RUN cd /var/www && npm install
-
-RUN cd /var/www/sharelatex/; \
+RUN cd /var/www && npm install; \
+        cd /var/www/sharelatex/; \
 	npm install; \
 	grunt install; \
 	bash -c 'source ./bin/install-services';
@@ -52,7 +51,7 @@ RUN cd /var/www/sharelatex/web; \
 	grunt compile:minify; \
 	chown -R www-data:www-data /var/www/sharelatex;
 
-EXPOSE 80
+EXPOSE 80 443
 
 WORKDIR /
 

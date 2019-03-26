@@ -33,17 +33,13 @@ module.exports =
 	repo: "https://github.com/sharelatex/chat-sharelatex.git",
 	version: "master"
 }, {
-	name: "tags",
-	repo: "https://github.com/theunbound/tags-sharelatex.git",
-	version: "master"
-}, {
 	name: "spelling",
 	repo: "https://github.com/sharelatex/spelling-sharelatex.git",
 	version: "master"
 }, {
 	name: "contacts",
 	repo: "https://github.com/sharelatex/contacts-sharelatex.git",
-	version: "sk-update-mongojs"
+	version: "master"
 }, {
         name: "notifications",
         repo: "https://github.com/sharelatex/notifications-sharelatex.git",
