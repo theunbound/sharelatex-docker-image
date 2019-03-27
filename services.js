@@ -13,10 +13,6 @@ module.exports =
 	repo: "https://github.com/sharelatex/document-updater-sharelatex.git",
 	version: "master"
 }, {
-	name: "clsi",
-	repo: "https://github.com/sharelatex/clsi-sharelatex.git",
-	version: "master"
-}, {
 	name: "filestore",
 	repo: "https://github.com/sharelatex/filestore-sharelatex.git",
 	version: "master"
@@ -31,6 +27,10 @@ module.exports =
 }, {
 	name: "chat",
 	repo: "https://github.com/sharelatex/chat-sharelatex.git",
+	version: "master"
+}, {
+	name: "tags",
+	repo: "https://github.com/theunbound/tags-sharelatex.git",
 	version: "master"
 }, {
 	name: "spelling",
