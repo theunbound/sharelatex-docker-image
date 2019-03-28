@@ -1,0 +1,2 @@
+# It's important to have unix line endings when putting scripts in a linux container.
+* text=auto eol=lf
