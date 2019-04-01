@@ -35,19 +35,18 @@ RUN cd /var/www && npm install; \
 ADD ${baseDir}/main.js /var/www/sharelatex/web/public/src/
 ADD ${baseDir}/ide.js /var/www/sharelatex/web/public/src/
 
-WORKDIR /var/www/sharelatex/web
-RUN	npm install;
-RUN     npm install bcrypt;
-RUN     mkdir modules; \
+RUN cd /var/www/sharelatex/web; \
+	npm install; \
+        npm install bcrypt; \
+        mkdir modules; \
         ### We're going to skip launchpad. It doesn't want to work like this
 	# cd modules; \
 	# git clone https://github.com/sharelatex/launchpad-web-module.git launchpad; \
         # cd ..; \
         make compile_full;
-WORKDIR /
 
 RUN cd /var/www && node git-revision > revisions.txt
-	
+
 # Minify js assets
 RUN cd /var/www/sharelatex/web; \
 	grunt compile:minify; \

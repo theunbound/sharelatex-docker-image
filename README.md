@@ -1,3 +1,19 @@
+ Meget hurdig instruktion i at bygge Omega: i mappen fra repo'et, kør
+
+    $> docker build -f ./Dockerfile-base -t sharelatex/sharelatex-base .
+    $> docker build -t sharelatex/omega:0.9 .
+    $> docker build -t sharelatex/clsi-sharelatex:0.1.1 ./clsi-texlive
+
+Og for at starte,
+
+    $> docker-compose up
+    
+Kommandoerne kræver, at docker og docker-compose er installeret
+først.
+
+-------------------------------------------------------------------------------
+Original readme:
+
 # ShareLaTeX Docker Image
 
 This is the source for building the sharelatex community-edition docker image.

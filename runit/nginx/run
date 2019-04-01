@@ -1,2 +1,6 @@
 #!/bin/bash
+
+# SHARELATEX_DOMAIN=$(echo $SHARELATEX_SITE_URL | sed -E 's/(https?:\/\/)?(.*)/\2/')
+# certbot certonly -n --standalone --agree-tos -m $SHARELATEX_ADMIN_EMAIL -d $SHARELATEX_DOMAIN && \
+#     sed -i "s/certbot -q renew/certbot -q certonly -n --nginx -d $SHARELATEX_DOMAIN/" /etc/cron.d/certbot
 exec nginx

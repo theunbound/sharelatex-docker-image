@@ -1,0 +1,10 @@
+FROM sharelatex/clsi-sharelatex
+
+# RUN tlmgr install xifthen ifmtarg
+
+ADD ./CompileManager.coffee /app/app/coffee/
+ADD ./LocalCommandRunner.coffee /app/app/coffee/
+RUN cd /app; \
+        npm run compile:all
+
+
