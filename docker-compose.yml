@@ -44,7 +44,7 @@ services:
             SHARELATEX_BEHIND_PROX: "true"
 
             SHARELATEX_SITE_LANGUAGE: da
-            SHARELATEX_SITE_URL: http://omega.levinhansen.dk
+            SHARELATEX_SITE_URL: https://omega.levinhansen.dk
             # SHARELATEX_NAV_TITLE: Our ShareLaTeX Instance
             # SHARELATEX_HEADER_IMAGE_URL: http://somewhere.com/mylogo.png
             # SHARELATEX_ADMIN_EMAIL: support@it.com
