@@ -46,7 +46,7 @@ services:
             SHARELATEX_SITE_LANGUAGE: da
             SHARELATEX_SITE_URL: https://omega.levinhansen.dk
             # SHARELATEX_NAV_TITLE: Our ShareLaTeX Instance
-            # SHARELATEX_HEADER_IMAGE_URL: http://somewhere.com/mylogo.png
+            SHARELATEX_HEADER_IMAGE_URL: https://omega.levinhansen.dk/img/brand/omegasky-navbar.svg
             # SHARELATEX_ADMIN_EMAIL: support@it.com
 
             # SHARELATEX_LEFT_FOOTER: '[{"text": "Powered by <a href=\"https://www.sharelatex.com\">ShareLaTeX</a> 2016"},{"text": "Another page I want to link to can be found <a href=\"here\">here</a>"} ]'
