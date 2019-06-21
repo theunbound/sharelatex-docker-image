@@ -1,4 +1,4 @@
- Meget hurdig instruktion i at bygge Omega: i mappen fra repo'et, kør
+ Meget hurtig instruktion i at bygge Omega: i mappen fra repo'et, kør
 
     $> docker build -f ./Dockerfile-base -t sharelatex/sharelatex-base .
     $> docker build -t sharelatex/omega:0.9 .
