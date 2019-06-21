@@ -1,10 +1,11 @@
  Meget hurdig instruktion i at bygge Omega: i mappen fra repo'et, kør
+ (hav tålmodighed, det tager nok et stykke tid):
 
     $> docker build -f ./Dockerfile-base -t sharelatex/sharelatex-base .
-    $> docker build -t sharelatex/omega:0.9 .
-    $> docker build -t sharelatex/clsi-sharelatex:0.1.1 ./clsi-texlive
+    $> docker build -t sharelatex/omega .
+    $> docker build -t sharelatex/clsi-sharelatex ./clsi-texlive
 
-Og for at starte,
+Og for at starte:
 
     $> docker-compose up
     

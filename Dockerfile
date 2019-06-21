@@ -13,7 +13,7 @@ ADD ${baseDir}/runit            /etc/service
 
 RUN rm /etc/nginx/sites-enabled/default
 ADD ${baseDir}/nginx/nginx.conf /etc/nginx/nginx.conf
-ADD ${baseDir}/nginx/sharelatex.conf /etc/nginx/sites-enabled/sharelatex.conf
+# ADD ${baseDir}/nginx/sharelatex.conf /etc/nginx/sites-enabled/sharelatex.conf
 
 ADD ${baseDir}/logrotate/sharelatex /etc/logrotate.d/sharelatex
 
@@ -51,6 +51,10 @@ RUN cd /var/www && node git-revision > revisions.txt
 RUN cd /var/www/sharelatex/web; \
 	grunt compile:minify; \
 	chown -R www-data:www-data /var/www/sharelatex;
+
+        # This one didn't survive when they decaffinated web. Maybe it'll be fixed upstream at some point.
+        # You should maybe check up on that, if you are reading this.
+ADD --chown=www-data ./tasks/CreateAndDestoryUsers.coffee /var/www/sharelatex/tasks/CreateAndDestoryUsers.coffee
 
 EXPOSE 80 443
 

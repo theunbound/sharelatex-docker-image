@@ -5,21 +5,38 @@ FROM phusion/baseimage:0.11
 ENV baseDir .
 
 RUN apt-get update; \
-    apt-get install -y sudo
-RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
-RUN apt-get install -y build-essential wget nodejs unzip time imagemagick optipng strace nginx git python zlib1g-dev libpcre3-dev aspell aspell-en aspell-af aspell-am aspell-ar aspell-ar-large aspell-bg aspell-bn aspell-br aspell-ca aspell-cs aspell-cy aspell-da aspell-de aspell-el aspell-eo aspell-es aspell-et aspell-eu-es aspell-fa aspell-fo aspell-fr aspell-ga aspell-gl-minimos aspell-gu aspell-he aspell-hi aspell-hr aspell-hsb aspell-hu aspell-hy aspell-id aspell-is aspell-it aspell-kk aspell-kn aspell-ku aspell-lt aspell-lv aspell-ml aspell-mr aspell-nl aspell-no aspell-nr aspell-ns aspell-or aspell-pa aspell-pl aspell-pt-br aspell-ro aspell-ru aspell-sk aspell-sl aspell-ss aspell-st aspell-sv aspell-ta aspell-te aspell-tl aspell-tn aspell-ts aspell-uk aspell-uz aspell-xh aspell-zu
-RUN rm -rf /var/cache/apt/archives/*
+        apt-get install -y sudo
+#RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
+RUN apt-get install -y build-essential wget unzip time imagemagick optipng strace nginx git python zlib1g-dev libpcre3-dev aspell aspell-en aspell-af aspell-am aspell-ar aspell-ar-large aspell-bg aspell-bn aspell-br aspell-ca aspell-cs aspell-cy aspell-da aspell-de aspell-el aspell-eo aspell-es aspell-et aspell-eu-es aspell-fa aspell-fo aspell-fr aspell-ga aspell-gl-minimos aspell-gu aspell-he aspell-hi aspell-hr aspell-hsb aspell-hu aspell-hy aspell-id aspell-is aspell-it aspell-kk aspell-kn aspell-ku aspell-lt aspell-lv aspell-ml aspell-mr aspell-nl aspell-no aspell-nr aspell-ns aspell-or aspell-pa aspell-pl aspell-pt-br aspell-ro aspell-ru aspell-sk aspell-sl aspell-ss aspell-st aspell-sv aspell-ta aspell-te aspell-tl aspell-tn aspell-ts aspell-uk aspell-uz aspell-xh aspell-zu
+#        rm -rf /var/cache/apt/archives/*;
+
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository -y universe
+RUN add-apt-repository -y ppa:certbot/certbot
+RUN apt-get update
+RUN apt-get install -y certbot python-certbot-nginx 
 
 WORKDIR /opt
 RUN wget https://s3.amazonaws.com/sharelatex-random-files/qpdf-6.0.0.tar.gz && tar xzf qpdf-6.0.0.tar.gz; \
     cd /opt/qpdf-6.0.0; \
     ./configure && make && make install && ldconfig
 
-ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV NVM_DIR="/usr/.nvm"
+RUN mkdir /usr/.nvm && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+RUN    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh";\
+       [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion";\
+        nvm install 10.15.3; \
+        nvm use default;
+ADD ./nvm_node_script.sh /usr/bin/node
+RUN chmod a+rx /usr/bin/node
+ENV NODE_PATH $NVM_DIR/v10.15.3/lib/node_modules
+ENV PATH $NVM_DIR/versions/node/v10.15.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 # RUN tlmgr install latexmk
 # RUN tlmgr install texcount
 
-RUN npm install -g grunt-cli
+#RUN nvm use --lts; \
+#RUN    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && \
+RUN        npm install -g grunt-cli;
 
 # Set up sharelatex user and home directory
 RUN adduser --system --group --home /var/www/sharelatex --no-create-home sharelatex; \

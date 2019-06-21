@@ -2,7 +2,7 @@ version: '2'
 services:
     sharelatex:
         restart: always
-        image: 192.168.1.10/omega:0.9.1
+        image: sharelatex/omega
         container_name: sharelatex
         depends_on:
             - mongo
@@ -48,8 +48,9 @@ services:
             SHARELATEX_SITE_LANGUAGE: da
             SHARELATEX_SITE_URL: https://omega.levinhansen.dk
             # SHARELATEX_NAV_TITLE: Our ShareLaTeX Instance
-            # SHARELATEX_HEADER_IMAGE_URL: http://somewhere.com/mylogo.png
+            SHARELATEX_HEADER_IMAGE_URL: https://omega.levinhansen.dk/img/brand/omegasky-navbar.svg
             # SHARELATEX_ADMIN_EMAIL: support@it.com
+            OVERLEAF_STATUS_URL: findes.ikke
 
             # SHARELATEX_LEFT_FOOTER: '[{"text": "Powered by <a href=\"https://www.sharelatex.com\">ShareLaTeX</a> 2016"},{"text": "Another page I want to link to can be found <a href=\"here\">here</a>"} ]'
             SHARELATEX_RIGHT_FOOTER: '[{"text": "For her kompiler&rsquo; FysikRevy&trade;"} ]'
@@ -94,7 +95,7 @@ services:
 
     clsi:
         restart: always
-        image: 192.168.1.10/clsi-sharelatex:0.1.2
+        image: sharelatex/clsi-sharelatex
         container_name: clsi
         expose:
           - 3013
