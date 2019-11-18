@@ -336,6 +336,8 @@ settings =
 			url: "http://localhost:3000"
 			user: httpAuthUser
 			pass: httpAuthPass
+		v1:
+			url: ""
 	references:{}
 	notifications:undefined
 

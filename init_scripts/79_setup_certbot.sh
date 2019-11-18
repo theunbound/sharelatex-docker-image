@@ -11,7 +11,7 @@ then
             # We'll put the domain name in there, so that certbot can find it.
             
          then
-             sed -i "s/^\(\(\s*\)server_name\(\s*\).*\)/\2server_name\3omega.levinhansen.dk\n\1/" \
+             sed -i "s|^\(\(\s*\)server_name\(\s*\).*\)|\2server_name\3$SHARELATEX_DOMAIN\n\1|" \
                  /etc/nginx/nginx.conf
          fi
     else

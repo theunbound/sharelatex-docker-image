@@ -26,16 +26,16 @@ module.exports =
 	version: "master"
 }, {
 	name: "chat",
-	repo: "https://github.com/das7pad/chat-sharelatex.git",
-	version: "misc/node8plus-support"
+	repo: "https://github.com/overleaf/chat.git",
+	version: "master"
 }, {
 	name: "tags",
 	repo: "https://github.com/theunbound/tags-sharelatex.git",
 	version: "master"
 }, {
 	name: "spelling",
-	repo: "https://github.com/das7pad/spelling-sharelatex.git",
-	version: "misc/node8plus-support"
+	repo: "https://github.com/overleaf/spelling.git",
+	version: "master"
 }, {
 	name: "contacts",
 	repo: "https://github.com/sharelatex/contacts-sharelatex.git",

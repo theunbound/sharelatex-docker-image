@@ -2,7 +2,7 @@ version: '2'
 services:
     sharelatex:
         restart: always
-        image: sharelatex/omega
+        image: 192.168.0.10/omega:0.13
         container_name: sharelatex
         depends_on:
             - mongo
@@ -13,7 +13,7 @@ services:
             - 80:80
             - 443:443
         expose:
-            - 3009
+            - 3000-3099
         links:
             - mongo
             - redis
@@ -24,8 +24,10 @@ services:
             - ~/certbot_data:/etc/letsencrypt
             #- /var/clsi/compiles:/var/www/sharelatex/clsi/compiles
         environment:
+            V1_API_URL: ""
             SHARELATEX_MONGO_URL: mongodb://mongo/sharelatex
             SHARELATEX_REDIS_HOST: redis
+            REDIS_HOST: redis
             CLSI_HOST: clsi
             FILESTORE_HOST: sharelatex
             SHARELATEX_APP_NAME: Omega
@@ -35,7 +37,7 @@ services:
             SHARELATEX_EMAIL_SMTP_SECURE: "false"
             SHARELATEX_EMAIL_SMTP_USER: omega@levinhansen.dk
             SHARELATEX_EMAIL_SMTP_PASS: meatfucker
-            SHARELATEX_CUSTOM_EMAIL_FOOTER: <div>This system is run with crossed fingers.</div>
+            # SHARELATEX_CUSTOM_EMAIL_FOOTER: <div>This system is run with crossed fingers.</div>
             SHARELATEX_EMAIL_SMTP_TLS_REJECT_UNAUTH: "false"
             SHARELATEX_EMAIL_SMTP_IGNORE_TLS: "true"
             SHARELATEX_ADMIN_EMAIL: omega@levinhansen.dk
@@ -95,7 +97,7 @@ services:
 
     clsi:
         restart: always
-        image: sharelatex/clsi-sharelatex
+        image: 192.168.1.10/clsi-sharelatex:0.1.3
         container_name: clsi
         expose:
           - 3013
